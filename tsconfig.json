@@ -1,0 +1,26 @@
+{
+  
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Node",
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "build",
+    "paths": {
+      "@juadz/core": ["packages/juadz-core/src"],
+      "@juadz/knex": ["packages/juadz-knex/src"],
+      "@juadz/fastify": ["packages/juadz-fastify/src"],
+      "@example/basic": ["examples/basic/src"],
+    }
+  },
+  "include": [
+    "packages/**/*",
+    "apps/**/*",
+    "examples/**/*", 
+    "examples/basic/knexfile.ts"  ],
+  "exclude": [
+    "node_modules",
+    "build",
+  ] 
+}

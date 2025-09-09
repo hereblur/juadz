@@ -1,0 +1,63 @@
+import { Resource, Schema } from '@juadz/core';
+import JuadzFastify from '@juadz/fastify';
+import KnexProvider from '@juadz/knex';
+import { z } from 'zod';
+import knex, { initDatabase } from './database';
+import fastify from 'fastify';
+import authProvider, { API_KEY } from './auth'
+
+// Define User schema according to your database
+const userSchema = z.object({
+  id: z.uuid(),
+  name: z.string().min(1),
+  email: z.email(),
+  created_at: z.iso.datetime().optional(),
+  updated_at: z.iso.datetime().optional(),
+});
+type TUser = z.infer<typeof userSchema>;
+
+// Use KnexProvider to provide database access to the resource
+const userRepository = KnexProvider('users', userSchema, knex)
+
+// Create User resource out of data provider
+const UserResource = new Resource(userRepository);
+
+// Set authentication method for this resource (must be defined in authProvider)
+UserResource.authentication = ['apiKey'];
+
+async function main() {
+    // Create and start fastify server
+    const server = fastify({
+        logger: true
+    });
+
+    await initDatabase();
+
+    server.get("/ping", async () => {
+        return { pong: "it worked!" };
+    });
+
+    // Apply defined resources to fastify, Its' will generate routes and documentations
+    await server.register(JuadzFastify, {
+        prefix: "/api/v1",
+        resources: [
+            UserResource,
+        ],
+        authentication: authProvider,
+        docs: {
+            title: "Juadz Fastify Example",
+            description: `Server api key is ${API_KEY}`,
+            version: "0.0.1",
+            url: ["http://localhost:3000"],
+        },
+    });
+
+    await server.ready();
+
+    await server.listen({ port: 3000 });
+    console.log('🚀 Server running on http://localhost:3000');
+    console.log('📚 API docs at http://localhost:3000/documentations');
+}
+
+main().catch(console.error);
+

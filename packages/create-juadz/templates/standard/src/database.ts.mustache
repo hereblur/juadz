@@ -1,0 +1,31 @@
+import knex from 'knex';
+
+const db = knex({
+  client: 'sqlite3',
+  connection: {
+    filename: './{{projectName}}.db',
+  },
+  useNullAsDefault: true,
+  migrations: {
+    directory: './migrations',
+  },
+  seeds: {
+    directory: './seeds',
+  },
+});
+
+export default db;
+
+export async function initDatabase() {
+    // For demonstration only. In production, use official Knex migrations: https://knexjs.org/guide/migrations.html
+    await db.schema.hasTable('users').then((exists) => {
+      if (!exists) {
+        return db.schema.createTable('users', (table) => {
+          table.string('id').primary();
+          table.timestamps(true, true);
+          table.string('name').notNullable();
+          table.string('email').unique().notNullable();
+        });
+      }
+    });
+}

@@ -1,0 +1,10 @@
+import { Resource } from '@juadz/core';
+import UserRepository, { TUser } from '../repository/users';
+
+// Create User resource out of data provider
+const UserResource = new Resource<TUser>(UserRepository);
+
+// Set authentication method for this resource (must be defined in authProvider)
+UserResource.authentication = ['apiKey'];
+
+export default UserResource;

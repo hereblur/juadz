@@ -1,0 +1,40 @@
+import { IAuthProvider } from "@juadz/core";
+
+export const API_KEY = process.env.API_KEY || "example-api-key";
+
+// This is a simple API key authentication provider
+export default {
+    apiKey: {
+        type: "apiKey",
+        in: "header",
+        name: "x-api-key",
+        func: async (headers, /*query, params, body, request*/) => {
+            
+            // Example of authentication function, its receives headers, query, params, body and request
+            // You can use any of them to authenticate the user
+            // In most case we are using only headers to check for API key
+
+            const token = headers ? headers['x-api-key'] : null;
+
+            // If the token is not provided or does not match the API_KEY, return null
+            // This will indicate that the authentication failed
+            // Do not throw an error here, framework will try multiple authentication methods
+            // and if all of them fail, it will throw an error 401 Unauthorized
+            // You can also throw an error here if you want to stop the authentication process immediately,
+            // but in most cases we just return null to indicate that authentication failed
+            if (!token || token !== API_KEY) {
+                return null;
+            }
+
+            // If the token is valid, return an object with permissions
+            // This object will be used to check permissions for the user
+            // You can define any permissions you want, here we are using example permissions
+            
+            return {
+                permissions: [
+                    'view.users', 'update.users', 'create.users'
+                ]
+            }
+        }
+    }
+} as IAuthProvider;

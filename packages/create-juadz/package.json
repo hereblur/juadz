@@ -1,0 +1,34 @@
+{
+  "name": "create-juadz",
+  "version": "1.0.0",
+  "description": "Juadz CLI",
+  "main": "build/index.js",
+  "bin": {
+    "create-juadz": "./bin/create-juadz.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["juadz", "cli", "scaffold", "generator"],
+  "dependencies": {
+    "commander": "^9.4.1",
+    "inquirer": "^8.2.5",
+    "chalk": "^4.1.2",
+    "fs-extra": "^11.1.0",
+    "mustache": "^4.2.0",
+    "validate-npm-package-name": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.3",
+    "@types/fs-extra": "^11.0.1",
+    "@types/mustache": "^4.2.2",
+    "typescript": "^4.9.5"
+  },
+  "files": [
+    "build/**/*",
+    "bin/**/*",
+    "templates/**/*"
+  ]
+}
