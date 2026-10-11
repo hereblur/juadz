@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title">
+  <title id="title">Juadz - TypeScript CRUD API toolkit</title>
+  <rect width="1200" height="630" fill="#171a21"/>
+  <path d="M0 0h22v630H0Z" fill="#ff3b5b"/>
+  <circle cx="1000" cy="315" r="245" fill="#222630"/>
+  <circle cx="1000" cy="315" r="182" fill="none" stroke="#ff3b5b" stroke-width="2" opacity=".45"/>
+  <circle cx="1000" cy="315" r="127" fill="none" stroke="#fff" stroke-width="2" opacity=".16"/>
+  <rect x="865" y="180" width="270" height="270" rx="58" fill="#ff3b5b"/>
+  <path d="m1017 224-89 118h66l-24 65 102-137h-69l14-46Z" fill="#fff"/>
+  <text x="100" y="270" font-family="sans-serif" font-size="90" font-weight="700" fill="#fff">Juadz</text>
+  <text x="104" y="350" font-family="sans-serif" font-size="32" fill="#c3c7d0">TypeScript CRUD APIs from Zod schemas</text>
+  <rect x="104" y="404" width="284" height="4" rx="2" fill="#ff3b5b"/>
+  <text x="104" y="468" font-family="sans-serif" font-size="23" fill="#e2e4e9">Resources · Providers · Permissions · Hooks</text>
+</svg>

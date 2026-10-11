@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-labelledby="title">
+  <title id="title">A resource connected to data providers</title>
+  <rect x="19" y="49" width="75" height="62" rx="10" fill="#fff" stroke="#d9dce3" stroke-width="2"/>
+  <path d="M19 61a10 10 0 0 1 10-12h55a10 10 0 0 1 10 12v9H19Z" fill="#ff3b5b"/>
+  <text x="56" y="90" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#313744">Resource</text>
+  <path d="M94 80h43m0 0-8-8m8 8-8 8" fill="none" stroke="#687080" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="174" cy="53" rx="35" ry="12" fill="#e2f3f0" stroke="#21877e" stroke-width="2"/>
+  <path d="M139 53v52c0 7 16 13 35 13s35-6 35-13V53" fill="#e2f3f0" stroke="#21877e" stroke-width="2"/>
+  <path d="M139 79c0 7 16 12 35 12s35-5 35-12" fill="none" stroke="#21877e" stroke-width="2"/>
+  <path d="M139 53c0 7 16 12 35 12s35-5 35-12" fill="none" stroke="#21877e" stroke-width="2"/>
+  <text x="174" y="143" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="700" fill="#18776f">YOUR DATA</text>
+</svg>
